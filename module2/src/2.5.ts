@@ -1,5 +1,3 @@
-
-
 // --------------------- 2.5 ------------------------
 type GenericArray<T> = Array<T>;
 
@@ -17,16 +15,27 @@ const user: GenericArray<User> = [
   },
 ];
 
-
-
-
-
 // --------------------- 2.6 ------------------------
-type TDeveloper = {
+type TDeveloper<T, X = null> = {
   name: string;
   computer: {
     brand: string;
     model: string;
-    releaseDate: number;
-  }
-}
+    releaseDate: string;
+  };
+  smartWatch: T;
+  bike?: X;
+};
+
+const masumVai: TDeveloper<{ type: string; brand: string }> = {
+  name: "Masum Raihan",
+  computer: {
+    brand: "AMD",
+    model: "9dfsdf",
+    releaseDate: "20 jan 2023",
+  },
+  smartWatch: {
+    type: "apple watch",
+    brand: "apple",
+  },
+};
